@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const app = express();
+const port = process.env.PORT || 3000;
 
 const mongoose = require("mongoose");
 const Item = require("./models/items");
@@ -22,7 +23,7 @@ mongoose
   .connect(mongodb, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Connected to MongoDB");
-    app.listen(3000);
+    app.listen(port);
   })
   .catch((err) => {
     console.log("Error connecting to MongoDB: " + err);
